@@ -11,3 +11,7 @@
 .cdk-drag-animating {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
+
+.document-component-list {
+  min-height: 100px;
+}

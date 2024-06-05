@@ -1,7 +1,14 @@
 <div class="p-3 m-1">
   <h1 class="fw-bold">In Document</h1>
   <hr>
-  <div class="document-component-list" cdkDropList (cdkDropListDropped)="drop($event)">
+  <div
+    class="document-component-list"
+    id="list-in-document"
+    cdkDropList
+    [cdkDropListConnectedTo]="['list-out-document']"
+    [cdkDropListData]="cardService.documentParts"
+    (cdkDropListDropped)="drop($event)"
+    >
     @for (component of cardService.documentParts; track $index) {
       <div cdkDrag class="h-100">
         <app-card-part [cardTitle]="component.partTitle" (click)="setEdit($index)"/>
@@ -11,7 +18,18 @@
 
   <h1 class="fw-bold m-1">Components</h1>
   <hr>
-  @for (component of componentsDocument; track $index) {
-    <app-card-part [cardTitle]="component.partTitle" (click)="addToDocument($event)"/>
-  }
+  <div
+    class="document-component-list"
+    id="list-out-document"
+    cdkDropList
+    [cdkDropListData]="componentsDocument"
+    [cdkDropListConnectedTo]="['list-in-document']"
+    (cdkDropListDropped)="drop($event)"
+    >
+    @for (component of componentsDocument; track $index) {
+      <div cdkDrag class="h-100">
+        <app-card-part [cardTitle]="component.partTitle"/>
+      </div>
+    }
+  </div>
 </div>
