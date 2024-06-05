@@ -1,7 +1,17 @@
-<mat-card class="m-2 h-75">
+<div class="d-flex flex-row-reverse m-1">
+  <h2 class="m-1" [class]="content === 'code' ? 'text-primary' : 'text-muted'" (click)="toggleContent('code')">Code</h2>
+  <h2 class="m-1" [class]="content === 'preview' ? 'text-primary' : 'text-muted'" (click)="toggleContent('preview')">Preview</h2>
+</div>
+<mat-card class="h-75 border border-secondary">
   <mat-card-content class="h-100">
-    <textarea readonly class="w-100 h-100">
-      {{ cardService.text }}
-    </textarea>
+
+    @if (content === 'code') {
+      <textarea readonly class="w-100 h-100">
+        {{ cardService.text }}
+      </textarea>
+    } @else {
+      <markdown [data]="cardService.text"/>
+    }
+
   </mat-card-content>
 </mat-card>

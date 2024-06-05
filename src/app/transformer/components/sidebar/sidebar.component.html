@@ -12,6 +12,6 @@
   <h1 class="fw-bold m-1">Components</h1>
   <hr>
   @for (component of componentsDocument; track $index) {
-    <app-card-part [cardTitle]="component.partTitle"/>
+    <app-card-part [cardTitle]="component.partTitle" (click)="addToDocument($event)"/>
   }
 </div>

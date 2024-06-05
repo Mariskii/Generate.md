@@ -92,9 +92,12 @@
             ],
             "styles": [
               "@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/katex/dist/katex.min.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/katex/dist/katex.min.js"
+            ]
           }
         }
       }

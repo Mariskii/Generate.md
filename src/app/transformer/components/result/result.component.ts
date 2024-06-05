@@ -1,30 +1,26 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CardService } from '../../services/card-service.service';
 import { MatCardModule } from '@angular/material/card';
-import { Subject } from 'rxjs';
+import { MarkdownComponent, MarkdownModule, MarkdownService } from 'ngx-markdown';
 
 @Component({
   selector: 'app-result',
   standalone: true,
   imports: [
-    MatCardModule
+    MatCardModule,
+    MarkdownComponent,
   ],
   templateUrl: './result.component.html',
   styleUrl: './result.component.scss'
 })
-export class ResultComponent implements OnInit{
+export class ResultComponent {
+
+  content:string = 'code';
 
   cardService = inject(CardService);
 
-  myPropSubject = new Subject();
-
- constructor() {
-   this.myPropSubject.subscribe((val) => {
-
-   });
- }
-
-  ngOnInit(): void {
-    this.myPropSubject.next('some arbitrary value');
+  toggleContent(newContent: string) {
+    this.content = newContent;
   }
+
 }
