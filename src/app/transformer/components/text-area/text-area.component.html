@@ -1,5 +1,5 @@
 <h2 class="m-2 text-muted">{{ cardService.actualDocumentPart?.partTitle }}</h2>
 <textarea
-  class="w-100 h-100 bg-dark p-3 text-primary"
+  class="w-100 h-75 bg-dark p-4 text-light"
   [(ngModel)]="cardService.actualDocumentPart!.partText"
   (ngModelChange)="cardService.getTextString()"></textarea>
