@@ -3,6 +3,10 @@ import { CardPartComponent } from '../card-part/card-part.component';
 import { DocumentPart } from '../../interfaces/DocumentPart.interface';
 import { CardService } from '../../services/card-service.service';
 import {CdkDragDrop, CdkDropList, CdkDrag, moveItemInArray, DragDropModule, transferArrayItem} from '@angular/cdk/drag-drop';
+import { MatCardModule } from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
+import { MatDialog } from '@angular/material/dialog';
+import { NewComponentModalComponent } from '../new-component-modal/new-component-modal.component';
 
 @Component({
   selector: 'app-sidebar',
@@ -12,6 +16,8 @@ import {CdkDragDrop, CdkDropList, CdkDrag, moveItemInArray, DragDropModule, tran
     CdkDrag,
     CdkDropList,
     DragDropModule,
+    MatCardModule,
+    MatIconModule,
   ],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss'
@@ -19,6 +25,7 @@ import {CdkDragDrop, CdkDropList, CdkDrag, moveItemInArray, DragDropModule, tran
 export class SidebarComponent{
 
   cardService = inject(CardService);
+  dialog = inject(MatDialog);
 
   componentsDocument: DocumentPart[] = [
     {
@@ -36,9 +43,6 @@ export class SidebarComponent{
   }
 
   drop(event: CdkDragDrop<DocumentPart[]>) {
-    //moveItemInArray(this.cardService.documentParts, event.previousIndex, event.currentIndex);
-
-
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
@@ -51,5 +55,21 @@ export class SidebarComponent{
     }
 
     this.cardService.getTextString();
+  }
+
+  addNewComponent() {
+    this.openDialog();
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(NewComponentModalComponent, {
+      data: {partTitle: ''},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result) {
+        this.cardService.documentParts.push({partTitle:result, partText:''})
+      }
+    });
   }
 }

@@ -6,15 +6,10 @@ import { DocumentPart } from '../interfaces/DocumentPart.interface';
 })
 export class CardService {
 
-  actualDocumentPart?: DocumentPart = {
-    partTitle: 'Title',
-    partText: '#Title'
-  }
-
   documentParts: DocumentPart[] = [
     {
       partTitle: 'Title',
-      partText: '# Title'
+      partText: '# Title\n***'
     },
     {
       partTitle: 'Subtitle',
@@ -25,6 +20,8 @@ export class CardService {
       partText: '- Element 1'
     },
   ];
+
+  actualDocumentPart?: DocumentPart = this.documentParts[0];
 
   text?: string;
 

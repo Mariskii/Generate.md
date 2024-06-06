@@ -18,6 +18,12 @@
 
   <h1 class="fw-bold m-1">Components</h1>
   <hr>
+  <mat-card class="m-2 add-component" (click)="addNewComponent()">
+    <mat-card-content class="d-flex align-items-center">
+      <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="add"></mat-icon>
+       <span>Create</span>
+    </mat-card-content>
+  </mat-card>
   <div
     class="document-component-list"
     id="list-out-document"
