@@ -23,7 +23,7 @@ export class CardService {
 
   actualDocumentPart?: DocumentPart = this.documentParts[0];
 
-  text?: string;
+  text: string = '';
 
   addDocumentPart(documentPart: DocumentPart) {
     this.documentParts.push(documentPart);
@@ -40,5 +40,17 @@ export class CardService {
     this.documentParts.forEach(part => {
       this.text = this.text + part.partText + '\n';
     });
+  }
+
+  downloadFile(): void {
+    const blob = new Blob([this.text], { type: 'text/markdown' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'README.md';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
   }
 }

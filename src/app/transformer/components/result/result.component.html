@@ -1,7 +1,16 @@
-<div class="d-flex flex-row-reverse m-1">
-  <h2 class="m-1" [class]="content === 'code' ? 'text-primary' : 'text-muted'" (click)="toggleContent('code')">Code</h2>
-  <h2 class="m-1" [class]="content === 'preview' ? 'text-primary' : 'text-muted'" (click)="toggleContent('preview')">Preview</h2>
+<div class="d-flex flex-row-reverse justify-content-between m-1">
+  <div class="d-flex">
+    <h2 class="m-1" [class]="content === 'code' ? 'text-primary' : 'text-muted'" (click)="toggleContent('code')">Code</h2>
+    <h2 class="m-1" [class]="content === 'preview' ? 'text-primary' : 'text-muted'" (click)="toggleContent('preview')">Preview</h2>
+  </div>
+
+  <button class="rounded bg-primary" mat-flat-button color="primary" (click)="downloadFile()">
+    <mat-icon>download</mat-icon>
+    Download
+  </button>
+
 </div>
+
 <mat-card class="h-75 border border-secondary">
   <mat-card-content class="h-100">
 
