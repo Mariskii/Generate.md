@@ -14,7 +14,8 @@
         <app-card-part
           [cardTitle]="component.partTitle"
           (click)="setEdit($index)"
-          (editEmiter)="openDialog(cardService.documentParts[$index])"/>
+          (editEmiter)="openDialog(cardService.documentParts[$index])"
+          (deleteEmiter)="deletePart(cardService.documentParts, $index)"/>
       </div>
     }
   </div>
@@ -39,7 +40,8 @@
       <div cdkDrag class="h-100">
         <app-card-part
           [cardTitle]="component.partTitle"
-          (editEmiter)="openDialog(componentsDocument[$index])"/>
+          (editEmiter)="openDialog(componentsDocument[$index])"
+          (deleteEmiter)="componentsDocument.splice($index,1);"/>
       </div>
     }
   </div>

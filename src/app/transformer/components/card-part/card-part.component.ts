@@ -15,10 +15,9 @@ import { MatIcon } from '@angular/material/icon';
 export class CardPartComponent {
 
   @Output() editEmiter = new EventEmitter<void>();
+  @Output() deleteEmiter = new EventEmitter<void>();
 
   @Input() cardTitle!: string;
 
-  editClick() {
-    this.editEmiter.emit();
-  }
+
 }
