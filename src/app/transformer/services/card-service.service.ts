@@ -9,7 +9,7 @@ export class CardService {
   documentParts: DocumentPart[] = [
     {
       partTitle: 'Title',
-      partText: '# Title\n***'
+      partText: '# Title\n'
     },
     {
       partTitle: 'Subtitle',
@@ -19,6 +19,15 @@ export class CardService {
       partTitle: 'List',
       partText: '- Element 1'
     },
+    {
+      partTitle: 'Syntax Highlight',
+      partText: `
+### Syntax highlight
+\`\`\`typescript
+const language = 'typescript';
+\`\`\`
+      `
+    }
   ];
 
   actualDocumentPart?: DocumentPart = this.documentParts[0];

@@ -11,14 +11,17 @@
     >
     @for (component of cardService.documentParts; track $index) {
       <div cdkDrag class="h-100">
-        <app-card-part [cardTitle]="component.partTitle" (click)="setEdit($index)"/>
+        <app-card-part
+          [cardTitle]="component.partTitle"
+          (click)="setEdit($index)"
+          (editEmiter)="openDialog(cardService.documentParts[$index])"/>
       </div>
     }
   </div>
 
   <h1 class="fw-bold m-1">Components</h1>
   <hr>
-  <mat-card class="m-2 add-component" (click)="addNewComponent()">
+  <mat-card class="m-2 add-component" (click)="openDialog()">
     <mat-card-content class="d-flex align-items-center">
       <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="add"></mat-icon>
        <span>Create</span>
@@ -34,7 +37,9 @@
     >
     @for (component of componentsDocument; track $index) {
       <div cdkDrag class="h-100">
-        <app-card-part [cardTitle]="component.partTitle"/>
+        <app-card-part
+          [cardTitle]="component.partTitle"
+          (editEmiter)="openDialog(componentsDocument[$index])"/>
       </div>
     }
   </div>

@@ -1,9 +1,11 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CardService } from '../../services/card-service.service';
 import { MatCardModule } from '@angular/material/card';
-import { MarkdownComponent, MarkdownModule, MarkdownService } from 'ngx-markdown';
+import { MarkdownComponent } from 'ngx-markdown';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+
+import 'prismjs/plugins/line-numbers/prism-line-numbers.js';
 
 @Component({
   selector: 'app-result',

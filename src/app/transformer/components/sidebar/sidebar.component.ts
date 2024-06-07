@@ -58,19 +58,17 @@ export class SidebarComponent{
     this.cardService.getTextString();
   }
 
-  addNewComponent() {
-    this.openDialog();
-  }
-
-  openDialog(): void {
+  openDialog(part?: DocumentPart) {
     const dialogRef = this.dialog.open(NewComponentModalComponent, {
-      data: {partTitle: ''},
+      data: part || {partTitle:''},
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      if(result) {
-        this.cardService.documentParts.push({partTitle:result, partText:''})
-      }
-    });
+    if(!part) {
+      dialogRef.afterClosed().subscribe(result => {
+        if(result) {
+          this.cardService.documentParts.push({partTitle:result, partText:''})
+        }
+      });
+    }
   }
 }

@@ -1,3 +1,8 @@
-<mat-card class="m-2">
+<mat-card class="m-2 d-flex flex-row justify-content-between">
   <mat-card-content>{{ cardTitle }}</mat-card-content>
+  <mat-icon
+    class="m-3 h-100 text-dark toggle-button"
+    aria-hidden="false"
+    fontIcon="edit"
+    (click)="editClick()"></mat-icon>
 </mat-card>
