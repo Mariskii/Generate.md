@@ -66,15 +66,12 @@ export class SidebarComponent{
 
   openDialog(part?: DocumentPart) {
     const dialogRef = this.dialog.open(NewComponentModalComponent, {
-      data: part || {partTitle:'dd'}
+      data: part || {partTitle:''}
     });
 
     if(!part) {
       dialogRef.afterClosed().subscribe(result => {
-        console.log(result);
         if(result) {
-          console.log(result);
-
           this.cardService.documentParts.push({partTitle:result, partText:''})
         }
       });
