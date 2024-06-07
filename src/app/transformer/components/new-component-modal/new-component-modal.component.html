@@ -1,8 +1,11 @@
 <h2 mat-dialog-title>Component:</h2>
 <mat-dialog-content>
   <mat-form-field>
-    <mat-label>Component Name</mat-label>
-    <input matInput [(ngModel)]="data.partTitle">
+    <mat-label>Component Name (Max. 15)</mat-label>
+    <input
+      matInput
+      [(ngModel)]="data.partTitle"
+      maxlength="15">
   </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions class="d-flex justify-content-between">
