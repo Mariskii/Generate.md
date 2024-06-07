@@ -1,0 +1,9 @@
+.toggle-button {
+  cursor: pointer;
+}
+
+@media (min-width: 600px) {
+  .toggle-button {
+    display: none;
+  }
+}
