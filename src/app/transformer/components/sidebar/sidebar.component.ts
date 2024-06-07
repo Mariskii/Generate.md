@@ -7,6 +7,7 @@ import { MatCardModule } from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 import { NewComponentModalComponent } from '../new-component-modal/new-component-modal.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-sidebar',
@@ -18,6 +19,7 @@ import { NewComponentModalComponent } from '../new-component-modal/new-component
     DragDropModule,
     MatCardModule,
     MatIconModule,
+    MatTooltipModule
   ],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss'

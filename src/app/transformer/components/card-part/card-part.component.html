@@ -2,17 +2,23 @@
   <mat-card-content>{{ cardTitle }}</mat-card-content>
 
   <div class="d-flex">
-    <mat-icon
-    class="m-3 h-100 text-dark toggle-button"
-    aria-hidden="false"
-    fontIcon="edit"
-    (click)="editEmiter.emit()"></mat-icon>
-
-    <mat-icon
-      class="m-3 h-100 text-dark toggle-button"
-      aria-hidden="false"
+    <button mat-icon-button
+      matTooltip="Primary"
+      class="text-dark toggle-button"
+      aria-label="Example icon-button with a heart icon"
       fontIcon="delete"
-      (click)="deleteEmiter.emit()"></mat-icon>
+      (click)="editEmiter.emit()">
+      <mat-icon>edit</mat-icon>
+    </button>
+
+    <button mat-icon-button
+      matTooltip="Primary"
+      class="text-dark toggle-button"
+      aria-label="Example icon-button with a heart icon"
+      fontIcon="delete"
+      (click)="deleteEmiter.emit()">
+      <mat-icon>delete</mat-icon>
+    </button>
   </div>
 
 </mat-card>

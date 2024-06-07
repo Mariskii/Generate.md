@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';
+import { MatTooltip } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-card-part',
@@ -8,6 +10,8 @@ import { MatIcon } from '@angular/material/icon';
   imports: [
     MatCardModule,
     MatIcon,
+    MatButtonModule,
+    MatTooltip,
   ],
   templateUrl: './card-part.component.html',
   styleUrl: './card-part.component.scss'
