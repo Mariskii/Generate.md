@@ -1,9 +1,12 @@
-<mat-card class="m-2 d-flex flex-row justify-content-between">
+<mat-card class="m-1 d-flex flex-row justify-content-between align-items-center">
+
+  <mat-icon cdkDragHandle class="m-1 dragger">drag_indicator</mat-icon>
+
   <mat-card-content>{{ cardTitle }}</mat-card-content>
 
   <div class="d-flex">
     <button mat-icon-button
-      matTooltip="Primary"
+      matTooltip="Edit"
       class="text-dark toggle-button"
       aria-label="Example icon-button with a heart icon"
       fontIcon="delete"
@@ -12,7 +15,7 @@
     </button>
 
     <button mat-icon-button
-      matTooltip="Primary"
+      matTooltip="Delete"
       class="text-dark toggle-button"
       aria-label="Example icon-button with a heart icon"
       fontIcon="delete"

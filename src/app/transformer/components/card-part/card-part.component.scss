@@ -1,3 +1,13 @@
 mat-icon, mat-card {
   cursor: pointer;
 }
+
+.dragger {
+  cursor: grab;
+}
+
+.dragger:active {
+  cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+}

@@ -1,3 +1,4 @@
+import { CdkDragHandle } from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
@@ -12,6 +13,7 @@ import { MatTooltip } from '@angular/material/tooltip';
     MatIcon,
     MatButtonModule,
     MatTooltip,
+    CdkDragHandle,
   ],
   templateUrl: './card-part.component.html',
   styleUrl: './card-part.component.scss'
