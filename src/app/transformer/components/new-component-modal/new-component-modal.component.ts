@@ -30,10 +30,13 @@ import { DocumentPart } from '../../interfaces/DocumentPart.interface';
   styleUrl: './new-component-modal.component.scss'
 })
 export class NewComponentModalComponent {
+
   constructor(
     public dialogRef: MatDialogRef<NewComponentModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DocumentPart,
   ) {}
+
+  title:string = this.data.partTitle;
 
   onNoClick(): void {
     this.dialogRef.close();

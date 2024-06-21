@@ -69,12 +69,17 @@ export class SidebarComponent{
       data: part || {partTitle:''}
     });
 
-    if(!part) {
-      dialogRef.afterClosed().subscribe(result => {
-        if(result) {
-          this.cardService.documentParts.push({partTitle:result, partText:''})
-        }
-      });
-    }
+    let dialogSuscription = dialogRef.afterClosed().subscribe(result => {
+
+      if(!part) {
+        this.cardService.documentParts.push({partTitle:result, partText:''})
+      }
+      else {
+        part.partTitle = result;
+      }
+
+      dialogSuscription.unsubscribe();
+    });
+
   }
 }

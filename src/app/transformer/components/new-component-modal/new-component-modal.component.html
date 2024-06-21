@@ -4,11 +4,11 @@
     <mat-label>Component Name (Max. 15)</mat-label>
     <input
       matInput
-      [(ngModel)]="data.partTitle"
+      [(ngModel)]="title"
       maxlength="15">
   </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions class="d-flex justify-content-between">
   <button class="text-danger" mat-button (click)="onNoClick()">Cancel</button>
-  <button mat-button [mat-dialog-close]="data.partTitle">Ok</button>
+  <button mat-button [mat-dialog-close]="title">Ok</button>
 </mat-dialog-actions>
