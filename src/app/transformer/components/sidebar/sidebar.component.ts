@@ -71,11 +71,14 @@ export class SidebarComponent{
 
     let dialogSuscription = dialogRef.afterClosed().subscribe(result => {
 
-      if(!part) {
-        this.cardService.documentParts.push({partTitle:result, partText:''})
-      }
-      else {
-        part.partTitle = result;
+      if(result) {
+
+        if(!part) {
+          this.cardService.documentParts.push({partTitle:result, partText:''})
+        }
+        else {
+          part.partTitle = result;
+        }
       }
 
       dialogSuscription.unsubscribe();
