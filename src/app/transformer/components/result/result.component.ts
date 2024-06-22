@@ -26,7 +26,7 @@ export class ResultComponent implements OnInit {
   cardService = inject(CardService);
 
   ngOnInit(): void {
-    this.cardService.getTextString();
+    this.cardService.getReadMeString();
   }
 
   toggleContent(newContent: string) {

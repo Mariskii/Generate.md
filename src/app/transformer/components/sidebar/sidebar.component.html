@@ -49,7 +49,7 @@
           [cardTitle]="component.partTitle"
           (click)="setEdit($index,'outDocument')"
           (editEmiter)="openDialog(cardService.unUsedComponents[$index])"
-          (deleteEmiter)="cardService.unUsedComponents.splice($index,1);"/>
+          (deleteEmiter)="deletePart(cardService.unUsedComponents,$index)"/>
       </div>
     }
   </div>

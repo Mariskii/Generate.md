@@ -1,11 +1,11 @@
-@if (cardService.documentParts.length > 0) {
+@if (!cardService.actualDocumentPart) {
+    <h2 class="m-2 text-muted">No component selected</h2>
+    <p class="m-3 text-center text-primary">
+    Select one of the items of the side bar or create a new one clicking in the <strong>Create button</strong></p>
+} @else {
   <h2 class="m-2 text-muted">{{ cardService.actualDocumentPart!.partTitle }}</h2>
   <textarea
     class="w-100 h-75 bg-dark p-4 text-light"
     [(ngModel)]="cardService.actualDocumentPart!.partText"
-    (ngModelChange)="cardService.getTextString()"></textarea>
-} @else {
-  <h2 class="m-2 text-muted">No component selected</h2>
-  <p class="m-3 text-center text-primary">
-    Select one of the items of the side bar or create a new one clicking in the <strong>Create button</strong></p>
+    (ngModelChange)="cardService.getReadMeString()"></textarea>
 }

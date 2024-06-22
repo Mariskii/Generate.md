@@ -50,13 +50,16 @@ const language = 'typescript';
   }
 
   setActualDocumentPart(position: number, sectionOfPart: string) {
-    if(sectionOfPart === 'inDocument')
-      this.actualDocumentPart = this.documentParts[position];
-    else
-    this.actualDocumentPart = this.unUsedComponents[position];
+    this.actualDocumentPart = sectionOfPart === 'inDocument'
+    ? this.documentParts[position]
+    : this.unUsedComponents[position];
   }
 
-  getTextString() {
+  deleteActualDocumentPart() {
+    this.actualDocumentPart = undefined;
+  }
+
+  getReadMeString() {
 
     this.text = '';
 

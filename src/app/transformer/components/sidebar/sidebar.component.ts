@@ -47,12 +47,17 @@ export class SidebarComponent{
       );
     }
 
-    this.cardService.getTextString();
+    this.cardService.getReadMeString();
   }
 
   deletePart(listParts: DocumentPart[], deletePosition: number) {
     listParts.splice(deletePosition,1);
-    this.cardService.getTextString();
+    this.cardService.getReadMeString();
+
+
+    if(listParts.length === 0) {
+      this.cardService.deleteActualDocumentPart();
+    }
   }
 
   openDialog(part?: DocumentPart) {
