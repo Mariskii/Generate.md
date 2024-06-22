@@ -1,11 +1,16 @@
 <app-header (toggleAside)="drawer.toggle()"/>
-<mat-drawer-container class="h-100">
+
+<mat-drawer-container class="">
+
   <mat-drawer #drawer opened="true" [mode]="sideBarMode">
     <app-sidebar/>
+
   </mat-drawer>
 
-  <mat-drawer-content class="d-md-flex justify-content-around">
+  <mat-drawer-content class="d-md-flex justify-content-around align-items-center">
+
     <app-text-area class="w-50 m-1"/>
     <app-result class="w-50 m-1"/>
+
   </mat-drawer-content>
 </mat-drawer-container>

@@ -4,6 +4,12 @@ textarea {
   outline: none;
 }
 
+mat-card {
+  overflow-y: auto;
+  min-height: 750px;
+  max-height: 750px;
+}
+
 h2 {
   cursor: pointer;
 }
