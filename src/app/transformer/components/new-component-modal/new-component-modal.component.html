@@ -1,14 +1,27 @@
 <h2 mat-dialog-title>Component:</h2>
 <mat-dialog-content>
-  <mat-form-field>
-    <mat-label>Component Name (Max. 15)</mat-label>
-    <input
-      matInput
-      [(ngModel)]="title"
-      maxlength="15">
-  </mat-form-field>
+  <form>
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input
+        matInput
+        type="text"
+        [formControl]="titleFormControl"
+        maxlength="15"
+        placeholder="Ex. Project name"
+        >
+
+    </mat-form-field>
+
+    @if (isValidField()) {
+      <p class="text-danger">
+        Please provide name.
+      </p>
+    }
+
+  </form>
 </mat-dialog-content>
 <mat-dialog-actions class="d-flex justify-content-between">
   <button class="text-danger" mat-button (click)="onNoClick()">Cancel</button>
-  <button mat-button [mat-dialog-close]="title">Ok</button>
+  <button mat-button [mat-dialog-close]="titleFormControl.value">Ok</button>
 </mat-dialog-actions>

@@ -10,8 +10,9 @@ import {
 import {MatButtonModule} from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { DocumentPart } from '../../interfaces/DocumentPart.interface';
+
 
 @Component({
   selector: 'app-new-component-modal',
@@ -25,6 +26,7 @@ import { DocumentPart } from '../../interfaces/DocumentPart.interface';
     MatDialogContent,
     MatDialogActions,
     MatDialogClose,
+    ReactiveFormsModule,
   ],
   templateUrl: './new-component-modal.component.html',
   styleUrl: './new-component-modal.component.scss'
@@ -38,7 +40,13 @@ export class NewComponentModalComponent {
 
   title:string = this.data.partTitle;
 
+  titleFormControl = new FormControl(this.title, [Validators.required]);
+
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  isValidField() {
+    return this.titleFormControl.errors && this.titleFormControl.touched;
   }
 }
