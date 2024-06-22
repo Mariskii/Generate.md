@@ -5,3 +5,32 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 app-root {
   display: block;
 }
+
+//Markdown table
+
+table {
+  width: 100%;
+
+  th {
+    color: rgba(0,0,0,.54);
+    font-size: 12px;
+    font-weight: 500;
+    height: 56px;
+  }
+
+  th[align=""],
+  th:not([align]) {
+    text-align: left;
+  }
+
+  td {
+    font-size: 15px;
+    height: 48px;
+  }
+
+  td,
+  th {
+    padding: 5px;
+    border: 1px solid rgba(0,0,0,.12);
+  }
+}
