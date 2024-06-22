@@ -29,19 +29,10 @@ export class SidebarComponent{
   cardService = inject(CardService);
   dialog = inject(MatDialog);
 
-  componentsDocument: DocumentPart[] = [
-    {
-      partTitle: 'Technologies',
-      partText: '# Technologies'
-    },
-    {
-      partTitle: 'Technologies 2',
-      partText: '# Technologies 2'
-    },
-  ];
 
-  setEdit(position: number) {
-    this.cardService.setActualDocumentPart(position);
+
+  setEdit(position: number, sectionOfPart: string) {
+    this.cardService.setActualDocumentPart(position, sectionOfPart);
   }
 
   drop(event: CdkDragDrop<DocumentPart[]>) {

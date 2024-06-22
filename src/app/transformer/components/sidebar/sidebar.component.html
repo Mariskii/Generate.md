@@ -20,7 +20,7 @@
       <div cdkDrag class="h-100">
         <app-card-part
           [cardTitle]="component.partTitle"
-          (click)="setEdit($index)"
+          (click)="setEdit($index, 'inDocument')"
           (editEmiter)="openDialog(cardService.documentParts[$index])"
           (deleteEmiter)="deletePart(cardService.documentParts, $index)"/>
       </div>
@@ -39,16 +39,17 @@
     class="document-component-list"
     id="list-out-document"
     cdkDropList
-    [cdkDropListData]="componentsDocument"
+    [cdkDropListData]="cardService.unUsedComponents"
     [cdkDropListConnectedTo]="['list-in-document']"
     (cdkDropListDropped)="drop($event)"
     >
-    @for (component of componentsDocument; track $index) {
+    @for (component of cardService.unUsedComponents; track $index) {
       <div cdkDrag class="h-100">
         <app-card-part
           [cardTitle]="component.partTitle"
-          (editEmiter)="openDialog(componentsDocument[$index])"
-          (deleteEmiter)="componentsDocument.splice($index,1);"/>
+          (click)="setEdit($index,'outDocument')"
+          (editEmiter)="openDialog(cardService.unUsedComponents[$index])"
+          (deleteEmiter)="cardService.unUsedComponents.splice($index,1);"/>
       </div>
     }
   </div>

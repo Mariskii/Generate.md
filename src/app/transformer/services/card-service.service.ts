@@ -30,6 +30,17 @@ const language = 'typescript';
     }
   ];
 
+  unUsedComponents: DocumentPart[] = [
+    {
+      partTitle: 'Technologies',
+      partText: '# Technologies'
+    },
+    {
+      partTitle: 'Technologies 2',
+      partText: '# Technologies 2'
+    },
+  ];
+
   actualDocumentPart?: DocumentPart = this.documentParts[0];
 
   text: string = '';
@@ -38,8 +49,11 @@ const language = 'typescript';
     this.documentParts.push(documentPart);
   }
 
-  setActualDocumentPart(position: number) {
-    this.actualDocumentPart = this.documentParts[position];
+  setActualDocumentPart(position: number, sectionOfPart: string) {
+    if(sectionOfPart === 'inDocument')
+      this.actualDocumentPart = this.documentParts[position];
+    else
+    this.actualDocumentPart = this.unUsedComponents[position];
   }
 
   getTextString() {
