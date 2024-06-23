@@ -9,6 +9,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { NewComponentModalComponent } from '../new-component-modal/new-component-modal.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltip } from '@angular/material/tooltip';
+import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-sidebar',
@@ -85,6 +86,20 @@ export class SidebarComponent{
       dialogSuscription.unsubscribe();
     });
 
+  }
+
+  openConfirmation(informationAlert?: string) {
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {data : informationAlert});
+
+    let confirmationSuscription = dialogRef.afterClosed().subscribe((confirmed: Boolean) => {
+
+      if(confirmed) {
+        this.cardService.resetComponents()
+      }
+
+
+      confirmationSuscription.unsubscribe();
+    });
   }
 
   resetComponents() {
