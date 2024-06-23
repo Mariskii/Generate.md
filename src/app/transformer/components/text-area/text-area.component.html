@@ -7,5 +7,6 @@
   <textarea
     class="w-100 bg-dark p-4 text-light"
     [(ngModel)]="cardService.actualDocumentPart!.partText"
-    (ngModelChange)="cardService.getReadMeString()"></textarea>
+    (ngModelChange)="cardService.getReadMeString()"
+    (keyup)="onKeyPress()"></textarea>
 }

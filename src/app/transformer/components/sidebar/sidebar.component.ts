@@ -7,7 +7,8 @@ import { MatCardModule } from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 import { NewComponentModalComponent } from '../new-component-modal/new-component-modal.component';
-import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTooltip } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-sidebar',
@@ -19,7 +20,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     DragDropModule,
     MatCardModule,
     MatIconModule,
-    MatTooltipModule
+    MatButtonModule,
+    MatTooltip
   ],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss'
@@ -48,6 +50,7 @@ export class SidebarComponent{
     }
 
     this.cardService.getReadMeString();
+    this.cardService.saveComponents();
   }
 
   deletePart(listParts: DocumentPart[], deletePosition: number) {
@@ -70,15 +73,21 @@ export class SidebarComponent{
       if(result) {
 
         if(!part) {
-          this.cardService.documentParts.push({partTitle:result, partText:''})
+          this.cardService.documentParts.push({partTitle:result, partText:''});
         }
         else {
           part.partTitle = result;
         }
+
+        this.cardService.saveComponents();
       }
 
       dialogSuscription.unsubscribe();
     });
 
+  }
+
+  resetComponents() {
+    this.cardService.resetComponents();
   }
 }
