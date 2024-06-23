@@ -3,7 +3,7 @@ import { DocumentPart } from "../interfaces/DocumentPart.interface";
 export const demoInDocumentParts: DocumentPart[] = [
   {
     partTitle: 'Title',
-    partText: '# Title of the project\n'
+    partText: '# Title of the project\n\nA brief description of what this project does and who it\'s for\n'
   },
   {
     partTitle: 'Authors',
@@ -63,5 +63,9 @@ export const demoOutDocumentParts: DocumentPart[] = [
   {
     partTitle: 'Screenshot',
     partText: '## Screenshots\n![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)'
+  },
+  {
+    partTitle: 'Usage/Examples',
+    partText: '## Usage/Examples\n\n```javascript\nimport Component from \'my-project\'\n\nfunction App() {\nreturn <Component />\n}\n```'
   }
 ]

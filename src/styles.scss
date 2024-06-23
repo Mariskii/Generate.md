@@ -34,3 +34,19 @@ table {
     border: 1px solid rgba(0,0,0,.12);
   }
 }
+
+//Markdown code
+
+.line-numbers {
+  background: #E0E0E0;
+  border-radius: 16px;
+  padding: 10px;
+}
+
+markdown {
+  h1, h2 {
+    font-weight: bolder !important;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgb(0, 0, 0, 0.2);
+  }
+}
