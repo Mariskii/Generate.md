@@ -2,6 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CardService } from './transformer/services/card-service.service';
 
+
 @Component({
   selector: 'app-root',
   standalone: true,

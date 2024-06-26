@@ -3,8 +3,8 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { MarkdownModule } from 'ngx-markdown';
+import { provideMarkdown } from 'ngx-markdown';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideAnimationsAsync(), importProvidersFrom(MarkdownModule.forRoot())]
+  providers: [provideRouter(routes), provideAnimationsAsync(), provideMarkdown()]
 };

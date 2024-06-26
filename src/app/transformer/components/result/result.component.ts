@@ -5,8 +5,6 @@ import { MarkdownComponent } from 'ngx-markdown';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
-import 'prismjs/plugins/line-numbers/prism-line-numbers.js';
-
 @Component({
   selector: 'app-result',
   standalone: true,
