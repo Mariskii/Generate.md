@@ -7,7 +7,7 @@ const MockCardService = {
   downloadFile:() => {}
 }
 
-fdescribe('ResultComponent', () => {
+describe('ResultComponent', () => {
   let component: ResultComponent;
   let fixture: ComponentFixture<ResultComponent>;
 

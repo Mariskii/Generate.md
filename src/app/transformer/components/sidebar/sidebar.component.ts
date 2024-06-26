@@ -83,9 +83,10 @@ export class SidebarComponent{
         this.cardService.saveComponents();
       }
 
-      dialogSuscription.unsubscribe();
+
     });
 
+    dialogSuscription.unsubscribe();
   }
 
   openConfirmation(informationAlert?: string) {
@@ -98,11 +99,8 @@ export class SidebarComponent{
       }
 
 
-      confirmationSuscription.unsubscribe();
     });
-  }
 
-  resetComponents() {
-    this.cardService.resetComponents();
+    confirmationSuscription.unsubscribe();
   }
 }
