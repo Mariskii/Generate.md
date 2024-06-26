@@ -8,7 +8,7 @@ const MockDialogRef = {
   close: () => {}
 }
 
-fdescribe('NewComponentModalComponent', () => {
+describe('NewComponentModalComponent', () => {
   let component: NewComponentModalComponent;
   let fixture: ComponentFixture<NewComponentModalComponent>;
 
