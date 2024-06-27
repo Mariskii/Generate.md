@@ -21,8 +21,8 @@ export class TextAreaComponent implements OnInit, OnDestroy{
   @Output()
   onDebounce: EventEmitter<void> = new EventEmitter();
 
-  private debouncer: Subject<void> = new Subject<void>();
-  private debouncerSubscription?: Subscription;
+  debouncer: Subject<void> = new Subject<void>();
+  debouncerSubscription?: Subscription;
 
   cardService = inject(CardService);
 

@@ -11,7 +11,7 @@ describe('TextAreaComponent', () => {
       imports: [TextAreaComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(TextAreaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -19,5 +19,15 @@ describe('TextAreaComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('onKeyPress works correctly', () => {
+
+    const spyDebounceNext = spyOn(component.debouncer, 'next');
+
+    component.onKeyPress();
+
+    expect(spyDebounceNext).toHaveBeenCalled();
+
   });
 });
