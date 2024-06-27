@@ -32,7 +32,9 @@ export class MainPageComponent implements OnDestroy, AfterContentInit {
 
   ngAfterContentInit(): void {
     this.breakpointSubscription = this.breakPointObserver.observe([
-      Breakpoints.Handset,
+      Breakpoints.Tablet,
+      Breakpoints.Small,
+      Breakpoints.Handset
 
     ]).subscribe(result => {
 
