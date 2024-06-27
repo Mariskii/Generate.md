@@ -35,6 +35,7 @@ export class MainPageComponent implements OnDestroy, AfterContentInit {
       Breakpoints.Handset,
 
     ]).subscribe(result => {
+
       if(result.matches) {
         this.sideBarMode = 'over'
       } else  {
