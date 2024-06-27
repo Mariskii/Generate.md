@@ -4,14 +4,14 @@ import { SidebarComponent } from './sidebar.component';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { DocumentPart } from '../../interfaces/DocumentPart.interface';
 import { MatDialog } from '@angular/material/dialog';
-import { of } from 'rxjs';
+import { Subscription, of } from 'rxjs';
 
 const MockCardService = {
   setActualDocumentPart:(position: number, sectionOfPart: string) => {},
   deleteActualDocumentPart:() => {}
 }
 
-describe('SidebarComponent', () => {
+fdescribe('SidebarComponent', () => {
   let component: SidebarComponent;
   let fixture: ComponentFixture<SidebarComponent>;
 

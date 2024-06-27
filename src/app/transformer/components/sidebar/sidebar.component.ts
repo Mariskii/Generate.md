@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnDestroy, inject } from '@angular/core';
 import { CardPartComponent } from '../card-part/card-part.component';
 import { DocumentPart } from '../../interfaces/DocumentPart.interface';
 import { CardService } from '../../services/card-service.service';
@@ -10,6 +10,7 @@ import { NewComponentModalComponent } from '../new-component-modal/new-component
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltip } from '@angular/material/tooltip';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
+import { Subscription, finalize } from 'rxjs';
 
 @Component({
   selector: 'app-sidebar',
@@ -27,12 +28,14 @@ import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss'
 })
-export class SidebarComponent{
+export class SidebarComponent implements OnDestroy{
 
   cardService = inject(CardService);
   dialog = inject(MatDialog);
 
-
+  ngOnDestroy(): void {
+    throw new Error('Method not implemented.');
+  }
 
   setEdit(position: number, sectionOfPart: string) {
     this.cardService.setActualDocumentPart(position, sectionOfPart);
@@ -69,7 +72,7 @@ export class SidebarComponent{
       data: part || {partTitle:''}
     });
 
-    let dialogSuscription = dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(result => {
 
       if(result) {
 
@@ -85,22 +88,18 @@ export class SidebarComponent{
 
 
     });
-
-    dialogSuscription.unsubscribe();
   }
 
   openConfirmation(informationAlert?: string) {
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {data : informationAlert});
 
-    let confirmationSuscription = dialogRef.afterClosed().subscribe((confirmed: Boolean) => {
+    dialogRef.afterClosed().subscribe((confirmed: Boolean) => {
 
       if(confirmed) {
         this.cardService.resetComponents()
       }
 
-
     });
 
-    confirmationSuscription.unsubscribe();
   }
 }

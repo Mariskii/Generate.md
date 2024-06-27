@@ -67,5 +67,9 @@ export const demoOutDocumentParts: DocumentPart[] = [
   {
     partTitle: 'Usage/Examples',
     partText: '## Usage/Examples\n\n```javascript\nimport Component from \'my-project\'\n\nfunction App() {\nreturn <Component />\n}\n```'
+  },
+  {
+    partTitle:'Aditional info',
+    partText:'> [!NOTE]\n>This is aditional information'
   }
 ]
