@@ -11,7 +11,7 @@ describe('HeaderComponent', () => {
       imports: [HeaderComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -19,5 +19,13 @@ describe('HeaderComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('clickToggle emit a value correctly', () => {
+    const spyToggleAsideEmit = spyOn(component.toggleAside, 'emit');
+
+    component.clickToggle();
+
+    expect(spyToggleAsideEmit).toHaveBeenCalled();
   });
 });
