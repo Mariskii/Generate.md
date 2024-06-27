@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, ViewChild, inject } from '@angular/core';
+import { AfterContentInit, AfterViewInit, ChangeDetectorRef, Component, OnDestroy, ViewChild, inject } from '@angular/core';
 import { TextAreaComponent } from '../../components/text-area/text-area.component';
 import { SidebarComponent } from '../../components/sidebar/sidebar.component';
 import { ResultComponent } from '../../components/result/result.component';
@@ -20,7 +20,7 @@ import { HeaderComponent } from '../../../shared/components/header/header.compon
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.scss'
 })
-export class MainPageComponent implements OnDestroy, AfterViewInit {
+export class MainPageComponent implements OnDestroy, AfterContentInit {
 
   @ViewChild('drawer') drawer!: MatDrawer;
 
@@ -30,7 +30,7 @@ export class MainPageComponent implements OnDestroy, AfterViewInit {
   breakPointObserver = inject(BreakpointObserver)
   changesDetection = inject(ChangeDetectorRef);
 
-  ngAfterViewInit(): void {
+  ngAfterContentInit(): void {
     this.breakpointSubscription = this.breakPointObserver.observe([
       Breakpoints.Handset,
 
@@ -39,8 +39,8 @@ export class MainPageComponent implements OnDestroy, AfterViewInit {
         this.sideBarMode = 'over'
       } else  {
         this.sideBarMode = 'side';
-        this.drawer.open()
-        this.changesDetection.detectChanges()
+        this.changesDetection.detectChanges();
+        this.drawer.open();
       }
     });
   }

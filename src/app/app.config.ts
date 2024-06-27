@@ -6,5 +6,9 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { provideMarkdown } from 'ngx-markdown';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideAnimationsAsync(), provideMarkdown()]
+  providers: [
+    provideRouter(routes),
+    provideAnimationsAsync(),
+    provideMarkdown(),
+  ]
 };
