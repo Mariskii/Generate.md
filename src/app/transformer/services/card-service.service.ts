@@ -67,6 +67,8 @@ export class CardService {
 
     if(savedComponents)
       this.documentParts = JSON.parse(savedComponents);
+
+    this.setActualDocumentPart(0, 'inDocument');
   }
 
   resetComponents() {
@@ -77,6 +79,6 @@ export class CardService {
     this.unUsedComponents = structuredClone(demoOutDocumentParts);
 
     this.getReadMeString();
-
+    this.setActualDocumentPart(0, 'inDocument');
   }
 }
